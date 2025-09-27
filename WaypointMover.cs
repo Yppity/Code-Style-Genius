@@ -28,10 +28,7 @@ public class WaypointMover : MonoBehaviour
 
     private void MoveToNextWaypoint()
     {
-        _currentWaypointIndex++;
-
-        if (_currentWaypointIndex == _waypoints.Length)
-            _currentWaypointIndex = 0;
+        _currentWaypointIndex = ++_currentWaypointIndex % _waypoints.Length;
 
         Vector3 direction = _waypoints[_currentWaypointIndex].transform.position;
         transform.forward = direction - transform.position;
